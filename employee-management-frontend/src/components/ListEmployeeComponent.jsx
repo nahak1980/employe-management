@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { listEmployees } from '../services/EmployeeService';
+import './../style.css'
+import { useNavigate } from 'react-router-dom';
 
 const ListEmployeeComponent = () => {
+    const navigator = useNavigate();
     let [employees, setEmployees] = useState([]);
 
     useEffect(() => {
@@ -11,10 +14,14 @@ const ListEmployeeComponent = () => {
         }).catch(error => {
             console.log(error);
         });
-    }, [])
+    }, []);
+    function addEmployee(){
+        navigator('/add-employee');
+    }
     return (
-        <div>
+        <div className='customStyle'>
             <h2>List of Employees</h2>
+            <button className='btn btn-primary mb-2' style={ {float: 'left'} } onClick={ addEmployee }>Add Employee</button>
             <table className='table table-striped table-bordered'>
                 <thead>
                     <tr>

@@ -1,14 +1,25 @@
 import { useState } from 'react'
 import './App.css'
-import HelloComponent from './components/HelloComponent'
 import ListEmployeeComponent from './components/ListEmployeeComponent'
+import { HeaderComponent } from './layout/HeaderComponent'
+import { FooterComponent } from './layout/FooterComponent'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import EmployeeComponent from './components/EmployeeComponent'
 
 function App() {
     const [count, setCount] = useState(0)
 
     return (
         <>
-            <ListEmployeeComponent></ListEmployeeComponent>
+            <BrowserRouter>
+                <HeaderComponent></HeaderComponent>
+                <Routes>
+                    <Route path='/' element={ <ListEmployeeComponent></ListEmployeeComponent> }></Route>
+                    <Route path='/employees' element={ <ListEmployeeComponent></ListEmployeeComponent> }></Route>
+                    <Route path='/add-employee' element={ <EmployeeComponent></EmployeeComponent> }></Route>
+                </Routes>
+                <FooterComponent></FooterComponent>
+            </BrowserRouter>
         </>
     )
 }
