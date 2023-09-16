@@ -13,5 +13,6 @@ public class EmployeeDto {
 	String firstName;
 	String lastName;
 	String email;
+	Long departmentId;
 	
 }

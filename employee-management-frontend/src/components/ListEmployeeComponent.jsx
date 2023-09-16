@@ -23,7 +23,6 @@ const ListEmployeeComponent = () => {
         navigator('/add-employee');
     }
     function onClickUpdate(item){
-        console.log(item);
         navigator(`/update-employee/${item.id}`);
     }
     function onClickDelete(id){
